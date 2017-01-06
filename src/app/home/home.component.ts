@@ -20,9 +20,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    let token = localStorage.getItem('token');
-    if (token) {
-      this.getState(token)
+    if (this.token) {
+      this.getState(this.token)
+    }else{
+      return ;
     }
   }
 
