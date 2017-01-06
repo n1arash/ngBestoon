@@ -1,7 +1,7 @@
 # Bestoon
-یک کلاینت تحت وب باحال و ساده برای استاراپ بستون 
-DEMO : https://n1arash.github.io/bestoon/
- چیز هایی که استفاده کردم :
+یک کلاینت تحت وب باحال و ساده برای استاراپ بستون <br><br>
+DEMO : https://n1arash.github.io/bestoon/ <br><br>
+ چیز هایی که استفاده کردم :<br>
 
 - Angular 2
 - Bootstrap 3.7
