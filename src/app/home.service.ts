@@ -17,12 +17,6 @@ export class HomeService {
             .map((res: Response) => res.json());
   }
 
-  setToken(token){
-    let body = `token=${token}`;
-    this.URL = "http://bestoon.ir/q/generalstat/";
-    return this.http.post(`${this.URL}`,body,this.options)
-        .map((res: Response) => res.status);
-  }
   submitIncome(token,amount:number,text:string):Observable<any>{
     let body = `token=${token}&amount=${amount}&text=${text}`
     this.URL = "http://bestoon.ir/submit/income/"
