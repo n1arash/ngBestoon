@@ -1,18 +1,21 @@
 <div class="row">
-  <div *ngIf="message" class="alert alert-info">
-    <a href="#" class="close" (click)="message = false" data-dismiss="alert" aria-label="close">&times;</a>
+  <div *ngIf="message !== '' " [ngClass]="class" class="alert alert-info animated">
+    <a href="#" class="close" (click)="setMessage('')" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>{{message}}</strong>
   </div>
-  <div class="col-md-6 col-sm-12">
+  <div *ngIf="!token" [ngClass]="{'hinge': hinge }" [ngStyle]="{'display': show }" class="col-md-12 col-sm-12 animated">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">توکن</h3>
+        <h3 class="panel-title">ورود</h3>
       </div>
-      <div class="panel-body">
-        <form enctype="multipart/form-data" (submit)="setToken(token)">
+      <div  class="panel-body">
+        <form enctype="multipart/form-data" (submit)="login(username,password)">
           <div class="input-group">
-            <input type="text" [(ngModel)]="token" class="form-control" name="token" placeholder="توکن"
-                   aria-describedby="basic-addon1">
+            <input type="text" [(ngModel)]="username" class="form-control" name="username" placeholder="نام کاربری" aria-describedby="basic-addon1">
+            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
+          </div>
+          <div class="input-group">
+            <input type="password" [(ngModel)]="password" class="form-control" name="password" placeholder="رمزعبور" aria-describedby="basic-addon1">
             <span class="input-group-addon" id="basic-addon1"><i class="fa fa-key"></i></span>
           </div>
           <button type="submit" class="btn btn-block btn-success">دریافت دَخل و خَرج</button>
@@ -20,13 +23,12 @@
       </div>
     </div>
   </div>
-  <div *ngIf="states" class="col-md-6 col-sm-12">
+  <div *ngIf="states"  class="col-sm-12 animated zoomIn">
     <div class="panel panel-success">
       <div class="panel-heading">
         <h3 class="panel-title">جدول دخل و خرج</h3>
       </div>
       <div class="panel-body">
-
         <table class="table table-responive table-striped table-bordered">
           <tr>
             <th>نوع</th>
@@ -49,7 +51,7 @@
   </div>
 </div>
 <div *ngIf="states" class="row">
-  <div  class="col-md-6 col-sm-12">
+  <div class="col-md-6 col-sm-12 animated slideInRight">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">ثبت دخل</h3>
@@ -59,17 +61,17 @@
           <input type="number" [(ngModel)]="incomeAmount" class="form-control" placeholder="چقدر دخل زدی ؟">
         </div>
         <div class="form-group">
-          <textarea name="text" [(ngModel)]="incomeText" cols="20" rows="8" class="form-control"
-                    placeholder="چجوری دخل زدی"></textarea>
+          <textarea name="text" [(ngModel)]="incomeText" cols="20" rows="8" class="form-control" placeholder="چجوری دخل زدی"></textarea>
         </div>
-
-        </div><!-- /input-group -->
-        <button (click)="submitIncome(token,incomeAmount,incomeText);incomeText ='';incomeAmount='';" class="btn btn-block btn-primary" type="button">
-          ثبت
-        </button>
       </div>
+      <!-- /input-group -->
+      <button (click)="submitIncome(token,incomeAmount,incomeText);incomeText ='';incomeAmount='';" class="btn btn-block btn-primary"
+        type="button">
+        ثبت
+        </button>
+    </div>
   </div>
-  <div class="col-md-6 col-sm-12">
+  <div class="col-md-6 col-sm-12 animated slideInLeft">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">ثبت خرج</h3>
@@ -79,17 +81,13 @@
           <input type="number" [(ngModel)]="expenseAmount" class="form-control" placeholder="چقدر خرج کردی ؟">
         </div>
         <div class="form-group">
-                    <textarea name="text" cols="20" rows="8" [(ngModel)]="expenseText" class="form-control"
-                              placeholder="چرا خرج کردی ؟"></textarea>
+          <textarea name="text" cols="20" rows="8" [(ngModel)]="expenseText" class="form-control" placeholder="چرا خرج کردی ؟"></textarea>
         </div>
-
-        </div><!-- /input-group -->
-        <button (click)="submitExpense(token,expenseAmount,expenseText);expenseAmount='';expenseText='' " class="btn btn-block btn-primary"
-                type="button">ثبت
-        </button>
       </div>
+      <!-- /input-group -->
+      <button (click)="submitExpense(token,expenseAmount,expenseText);expenseAmount='';expenseText='' " class="btn btn-block btn-primary"
+        type="button">ثبت
+        </button>
     </div>
+  </div>
 </div>
-
-
-
