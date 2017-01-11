@@ -15,7 +15,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 # TODO 
-- Login to Bestoon ! (new Feauture of bestoon)
-- Route Seperating ...
+- ~~Login to Bestoon ! (new Feauture of bestoon)~~
+- ~~Route Seperating ...~~
 - Code Refactoring
 - Write Test ! :(
